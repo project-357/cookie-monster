@@ -8,16 +8,18 @@ function generateFilePathFromURL(urlString) {
   const parsedUrl = new URL(urlString);
   const domain = parsedUrl.hostname.replace(/\./g, '-'); // Replace dots with dashes for folder name
   const routes = parsedUrl.pathname.split('/').filter(route => route); // Split the path by '/' and remove empty parts
-  const fileName = routes.length ? routes.join('-') : 'index'; // If no path, save as 'index'
-  
-  // Create the folder path
+
+  // If no routes, use the domain itself as the filename
+  const fileName = routes.length ? `${domain}-${routes.join('-')}` : domain;
+
+  // Create the folder path (domain as folder name)
   const folderPath = path.join(__dirname, domain);
-  
+
   // Return the full file path (folder + file name)
   return { folderPath, fileName };
 }
 
-// Function to fetch cookies and save them to CSV
+// Function to fetch cookies and save them to CSV or JSON in case of error
 async function fetchCookiesAndSaveToCSV(url) {
   try {
     // Make a GET request to the website
@@ -70,11 +72,26 @@ async function fetchCookiesAndSaveToCSV(url) {
     console.log(`Cookies saved to ${outputFile}`);
 
   } catch (error) {
-    console.error('Error fetching cookies:', error);
+    // Handle the error by saving it to a JSON file
+    const { folderPath, fileName } = generateFilePathFromURL(url);
+
+    if (!fs.existsSync(folderPath)) {
+      fs.mkdirSync(folderPath, { recursive: true });
+    }
+
+    // Prepare error information
+    const errorDetails = {
+      message: error.message,
+      code: error.code,
+      status: error.response?.status || 'Unknown',
+      headers: error.response?.headers || {},
+    };
+
+    // Save error details in a JSON file
+    const errorFile = path.join(folderPath, `${fileName}-error.json`);
+    fs.writeFileSync(errorFile, JSON.stringify(errorDetails, null, 2));
+    console.error(`Error fetching cookies. Details saved to ${errorFile}`);
   }
 }
-
-
-
 
 module.exports = { fetchCookiesAndSaveToCSV };
