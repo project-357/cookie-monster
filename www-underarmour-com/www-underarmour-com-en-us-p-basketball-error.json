@@ -1,0 +1,26 @@
+{
+  "message": "Request failed with status code 404",
+  "code": "ERR_BAD_REQUEST",
+  "status": 404,
+  "headers": {
+    "connection": "keep-alive",
+    "content-length": "0",
+    "age": "0",
+    "cache-control": "public, max-age=0, must-revalidate",
+    "server": "Vercel",
+    "set-cookie": "target-session-id=5bbafdb6-5105-4d7b-ac41-c40b54afe1f0; Path=/; SameSite=strict, AMCV_A9733BC75245B1A30A490D4D%40AdobeOrg=MCMID%7C39504395246782796623513354563840072847; Path=/; Domain=.prod-na04-vercel.ecm.underarmour.com, target-tnt-id=5bbafdb6-5105-4d7b-ac41-c40b54afe1f0.34_0; Path=/; SameSite=strict, ua-geo-data=US; Path=/, ua-target-result=/?valid=1&version_account=ms&version_cart=ms&version_checkout=ms&version_clp=ms&version_home=ms&version_pdp=ms&version_plp=ms&version_search=ms; Path=/; SameSite=Lax; Secure;",
+    "strict-transport-security": "max-age=63072000",
+    "x-matched-path": "/[locale]/product/[searchParams]/upc/[...productId]",
+    "x-vercel-cache": "MISS",
+    "x-vercel-id": "iad1::iad1::f9dj9-1728662260521-89c64d85fcfe",
+    "fastly-restarts": "1",
+    "accept-ranges": "bytes",
+    "date": "Fri, 11 Oct 2024 15:57:40 GMT",
+    "via": "1.1 varnish",
+    "x-served-by": "cache-lga21964-LGA",
+    "x-cache": "MISS",
+    "x-cache-hits": "0",
+    "x-timer": "S1728662260.498252,VS0,VE182",
+    "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch"
+  }
+}

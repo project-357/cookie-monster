@@ -1,0 +1,6 @@
+name,value,attributes
+"target-session-id","d3708ca4-4a34-400e-b763-0619736d6bd2","Path=/; SameSite=strict"
+"AMCV_A9733BC75245B1A30A490D4D%40AdobeOrg","MCMID|77214923458013185944580167956976653054","Path=/; Domain=.prod-na04-vercel.ecm.underarmour.com"
+"target-tnt-id","d3708ca4-4a34-400e-b763-0619736d6bd2.34_0","Path=/; SameSite=strict"
+"ua-geo-data","US","Path=/"
+"ua-target-result","/?valid","Path=/; SameSite=Lax; Secure;"
